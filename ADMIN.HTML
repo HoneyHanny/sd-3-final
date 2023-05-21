@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CpEnventory- Administrator</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+ <div class="container">
+	<div class="loginHeader">
+		<h1> CpEnventory</h1>
+		<h3> Inventory Management System</h3>
+		<p> ADMINISTRATOR </p>
+		<div>
+		<button class="back" type="button" onclick="location.href ='login.html'"> Main Menu </button>
+		</div>
+		<table id="item-table">
+			<tr>
+				<th>Item Number</th>
+				<th>Serial Number</th>
+				<th>Description/Item Name</th>
+				<th>Brand</th>
+				<th>Model Number</th>
+				<th>Status</th>
+				<th>Date Acquired</th>
+				<th>Location</th>
+				<th>Remarks</th>
+				<th>Checked By</th>
+			</tr>
+			<tr align="center">
+
+			</tr>
+		</table>
+
+		<div class="admin-capabilities admin-reset" id="admin-reset-id">
+			<button id="reset-button">Reset</button>
+			<!-- prompt user to confirm -->
+		</div>
+
+		<div class="admin-capabilities admin-summary">
+			<button id="summary-button">Summary</button>
+			<div id="summary-id"></div>
+			<!-- add new element to show summary -->
+		</div>
+
+		<div class="admin-capabilities admin-delete">
+			<button id="delete-button">Delete</button>
+			<!-- prompt user what type of model -->
+			<div id="delete-id">
+				<input type="text" id="delete-input"></input>
+			</div>
+		</div>
+
+
+	</div>
+ </div>
+</body>
+<script src="script.js"></script>
+</html> 

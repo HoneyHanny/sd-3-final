@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CpEnventory- Reads</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+	<div class ="loginHeader">
+		<h1> CpEnventory</h1>
+		<h3> Inventory Management System</h3>
+		<p> READS section </p>
+		<div>
+			<button class ="back" type="button" onclick="location.href ='login.html'"> Main Menu </button>
+		</div>
+	</div>
+	
+
+	<div class="detailsBody">
+		<form id="create-item-id" action="">
+			<div class="Details">
+					
+				<div>
+					<label for="itemno">Item Number </label>
+					<input type="text" id="itemno" name="itemno" required>
+				</div>
+				
+				<div>
+					<label for="serialno">Serial Number </label>
+					<input type="text" id="serialno" name="serialno" required>
+					<br>
+				</div>
+
+				<div>
+					<label for="description">Description </label>
+					<select id="description" name="description">
+						<option value="monitor">Monitor</option>
+						<option value="sensor">Sensor</option>
+						<option value="mouse">Mouse</option>
+						<option value="keyboard">Keyboard</option>
+						<option value="tools">Tools</option>
+						<option value="ic">Integrated Circuits</option>
+					</select>
+					<br>
+				</div>
+				
+				<div>
+					<label for="brand">Brand </label>
+					<input type="text" id="brand" name="brand" required>
+					<br>
+				</div>
+				
+				<div>
+					<label for="modelno">Model Number </label>
+					<input type="text" id="modelno" name="modelno" required>
+					<br>
+				</div>
+
+				<div>
+					<label for="status"> Status </label>
+
+					<label for="working">Functional </label>
+					<input type="radio" id="working" name="status" value="working" required>
+
+					<label for="inoperative">Defective </label>
+					<input type="radio" id="inoperative" name="status" value="inoperative" required>
+					<br>
+				</div>
+				
+				<div>
+					<label for="dateacq">Date Acquired </label>
+					<input type="date" id="dateacq" name="dateacq" required>
+					<br>
+				</div>
+
+				<div>
+					<label for="location">Location </label>
+					<input type="text" id="location" name="location" required>
+					<br>
+				</div>
+
+				<div>
+					<label for="remarks">Remarks </label>
+					<input type="text" id="remarks" name="remarks" required>
+
+					<br>
+				</div>
+
+				<div>
+					<label for="checked">Checked By </label>
+					<input type="text" id="checked" name="checked" required>
+					<br>
+				</div>
+
+				<div>
+					<input class="reset" type="reset">
+				</div>
+
+				<div>
+					<input id="submit-id" name="submit-id" class="submit" type="button" value="Submit">
+				</div>
+			</div> <!-- end details -->
+		</form>
+	</div> <!-- end details body -->
+</div> <!-- end container -->
+<div>
+	<div>
+		<table id="item-table">
+			<tr>
+				<th>Item Number</th>
+				<th>Serial Number</th>
+				<th>Description/Item Name</th>
+				<th>Brand</th>
+				<th>Model Number</th>
+				<th>Status</th>
+				<th>Date Acquired</th>
+				<th>Location</th>
+				<th>Remarks</th>
+				<th>Checked By</th>
+			</tr>
+			<!-- <tr align="center">
+			</tr> -->
+		</table>
+	</div>
+</div>
+</body>
+<script src="script.js"></script>
+</html> 

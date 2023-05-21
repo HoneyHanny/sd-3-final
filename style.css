@@ -2,6 +2,8 @@
 
 body {
 	/* background: url('images/13901386_1216449268386684_150293028730379995_n.png') no-repeat; */
+	background-color: #000000;
+	background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
 	background-color: #313131;
 	background-position: center center;
 	background-size: cover;

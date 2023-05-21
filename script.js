@@ -391,6 +391,17 @@ function Reset() {
 	if (response) {
 		DeleteAll()
 		alert("All items have been deleted")
+		document.getElementById("item-table").innerHTML = "<tr>" +
+			"<th>Item Number</th>" +
+			"<th>Serial Number</th>" +
+			"<th>Description/Item Name</th>" +
+			"<th>Brand</th>" +
+			"<th>Model Number</th>" +
+			"<th>Status</th>" + 
+			"<th>Date Acquired</th>" +
+			"<th>Location</th>" +
+			"<th>Remarks</th>" +
+			"<th>Checked By</th></tr>"
 	}
 	else {
 		alert("Reset aborted")
@@ -418,6 +429,8 @@ function DeleteAll() {
 	models.forEach(e => {
 		e.count = 0
 	});
+	counter = 0
+	Save()
 }
 /**
  * Add a new model.
@@ -459,6 +472,7 @@ function DeleteAllModelItems(modelNum) {
 			i--;
 		}
 	}
+	Save()
 }
 /**
  * Initializes the item table

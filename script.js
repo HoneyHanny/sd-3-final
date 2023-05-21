@@ -222,10 +222,12 @@ function Delete(serialNum) {
 
 			for (let j = i; j < items.length; j++)
 				items[j] = items[j + 1]
+			items.pop()
 			break
 		}
 	}
 	counter--
+	Save()
 }
 /**
  * Handles adding a new item.
@@ -276,7 +278,7 @@ function HandleCreate() {
 	}
 	else
 	{
-		console.alert("An item with the same serial number or item number already exist.")
+		alert("An item with the same serial number or item number already exist.")
 	}
 }
 /**
@@ -467,11 +469,13 @@ function HandleDeleteModel() {
  */
 function DeleteAllModelItems(modelNum) {
 	for (let i = 0; i < items.length; i++) {
+		console.log("for: " + i)
 		if (modelNum == items[i].modelNum) {
 			Delete(items[i].serialNum)
-			i--;
+			i--
 		}
 	}
+	SetTable()
 	Save()
 }
 /**
@@ -491,18 +495,22 @@ function InitItemTable() {
 	console.log("Init item table")
 	var element = document.getElementById("item-table")
 
-	for (let i = 0; i < items.length; i++)
+	if (items != null)
 	{
-		element.innerHTML += "<tr><td>" + items[i].itemNum + "</td>" +
-			"<td>" + items[i].serialNum + "</td>" +
-			"<td>" + items[i].itemName + "</td>" +
-			"<td>" + items[i].brand + "</td>" +
-			"<td>" + items[i].modelNum + "</td>" +
-			"<td>" + items[i].itemStatus + "</td>" +
-			"<td>" + items[i].dateAcq + "</td>" +
-			"<td>" + items[i].location + "</td>" +
-			"<td>" + items[i].remarks + "</td>" +
-			"<td>" + items[i].checkedBy + "</td></tr>"
+		for (let i = 0; i < items.length; i++)
+		{
+			console.log("for init item table")
+			element.innerHTML += "<tr><td>" + items[i].itemNum + "</td>" +
+				"<td>" + items[i].serialNum + "</td>" +
+				"<td>" + items[i].itemName + "</td>" +
+				"<td>" + items[i].brand + "</td>" +
+				"<td>" + items[i].modelNum + "</td>" +
+				"<td>" + items[i].itemStatus + "</td>" +
+				"<td>" + items[i].dateAcq + "</td>" +
+				"<td>" + items[i].location + "</td>" +
+				"<td>" + items[i].remarks + "</td>" +
+				"<td>" + items[i].checkedBy + "</td></tr>"
+		}
 	}
 
 }
@@ -579,4 +587,41 @@ if (deleteId != null)
 {
 	console.log("delete-id")
 	// deleteId.innerHTML = "<input type='text' id='delete-input'></input>"
+}
+
+/**
+ * Sets the table
+ */
+function SetTable()
+{
+	let element = document.getElementById("item-table")
+	element.innerHTML = "<tr>" +
+		"<th>Item Number</th>" +
+		"<th>Serial Number</th>" +
+		"<th>Description/Item Name</th>" +
+		"<th>Brand</th>" +
+		"<th>Model Number</th>" +
+		"<th>Status</th>" +
+		"<th>Date Acquired</th>" +
+		"<th>Location</th>" +
+		"<th>Remarks</th>" +
+		"<th>Checked By</th></tr>"
+
+	if (items != null) 
+	{
+		for (let i = 0; i < items.length; i++)
+		{
+			element.innerHTML += "<tr><td>" + items[i].itemNum + "</td>" +
+				"<td>" + items[i].serialNum + "</td>" +
+				"<td>" + items[i].itemName + "</td>" +
+				"<td>" + items[i].brand + "</td>" +
+				"<td>" + items[i].modelNum + "</td>" +
+				"<td>" + items[i].itemStatus + "</td>" +
+				"<td>" + items[i].dateAcq + "</td>" +
+				"<td>" + items[i].location + "</td>" +
+				"<td>" + items[i].remarks + "</td>" +
+				"<td>" + items[i].checkedBy + "</td></tr>"
+		}
+	}
+	
 }

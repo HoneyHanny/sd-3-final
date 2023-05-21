@@ -153,9 +153,9 @@ function Create(item) {
 	for (let j = 0; j < items.length; j++)
 	{
 		if (items[j].serialNum == item.serialNum)
-		{
 			return false
-		}
+		if (items[j].itemNum == item.itemNum)
+			return false
 	}
 
 	var isConsumableInput
@@ -274,6 +274,10 @@ function HandleCreate() {
 
 		Save()
 	}
+	else
+	{
+		console.alert("An item with the same serial number or item number already exist.")
+	}
 }
 /**
  * Handles reading an item
@@ -368,12 +372,16 @@ function Increase(modelNum) {
 /**
  * Submit details
  */
-document.getElementById("submit-id").addEventListener("click", function (event) {
-	console.log("submit event")
-	event.preventDefault()
-	
-	HandleCreate()
-})
+var submitButton = document.getElementById("submit-id")
+if (submitButton != null)
+{
+	submitButton.addEventListener("click", function (event) {
+		console.log("submit event")
+		event.preventDefault()
+		
+		HandleCreate()
+	})
+}
 
 /**
  * Reset inventory app.
@@ -395,7 +403,7 @@ function Summary() {
 	let functional = 0
 	let defective = 0
 	items.forEach(e => {
-		if (e.isFunctional)
+		if (e.itemStatus == "working")
 			functional++
 		else
 			defective++;
@@ -517,7 +525,7 @@ if (summaryButton != null)
 var modelInputPointer = function () {
 
 	if (event.key != "Enter") {
-		console.log("enter");
+		console.log("not enter");
 		return
 	}
 
@@ -539,7 +547,7 @@ var deleteButton = document.getElementById("delete-button")
 if (deleteButton != null)
 {
 	deleteButton.addEventListener("click", function () {
-		console.log("event delete")
+		console.log("event delete")	
 
 		document.getElementById("delete-id").innerHTML = '<input type="text" id="delete-input"></input>'
 		document.getElementById("delete-input").addEventListener("keypress", modelInputPointer)
@@ -555,5 +563,6 @@ if (deleteInput != null)
 var deleteId = document.getElementById("delete-id")
 if (deleteId != null)
 {
-	deleteId.innerHTML = "<input type='text' id='delete-input'></input>"
+	console.log("delete-id")
+	// deleteId.innerHTML = "<input type='text' id='delete-input'></input>"
 }
